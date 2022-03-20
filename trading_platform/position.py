@@ -1,9 +1,10 @@
 from datetime import datetime
 from dataclasses import dataclass
+from trading_platform.base import Base
 
 
 @dataclass
-class Position:
+class Position(Base):
 
 	id: int
 
@@ -12,5 +13,3 @@ class Position:
 	quantity: int
 
 	created_at: datetime
-
-	updated_at: datetime

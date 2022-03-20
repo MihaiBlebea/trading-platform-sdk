@@ -1,5 +1,6 @@
 from pprint import pprint
 from trading_platform.client import Client
+from time import sleep
 
 
 def main():
@@ -7,12 +8,14 @@ def main():
 	account = client.open_account()
 
 	order = client.place_order("AAPL", "buy", 0, 1000)
-	print("\nThis is the initial order:")
+	print("\nThis is the order:")
 	pprint(order)
 
-	orders = client.get_orders()
-	print("\nThis is a list of orders:")
-	pprint(orders)
+	sleep(60) # Wait for the order to be filled
+
+	positions = client.get_portfolio()
+	print("\nThis is a list of open positions:")
+	pprint(positions)
 
 
 if __name__ == "__main__":

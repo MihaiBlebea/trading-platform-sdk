@@ -1,9 +1,10 @@
 from datetime import datetime
 from dataclasses import dataclass
+from trading_platform.base import Base
 
 
 @dataclass
-class Order:
+class Order(Base):
 
 	id: int
 
