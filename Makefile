@@ -22,3 +22,6 @@ test:
 
 build:
 	./env/bin/python3 setup.py bdist_wheel
+
+publish:
+	twine upload dist/*
