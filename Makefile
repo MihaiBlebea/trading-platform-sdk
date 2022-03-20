@@ -1,3 +1,5 @@
+.PHONY: build
+
 setup: create-env init
 
 create-env:
