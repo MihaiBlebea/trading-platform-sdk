@@ -2,4 +2,4 @@
 
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONPATH="${PYTHONPATH}:${PWD}"
-eval "./env/bin/python3 -u ./trading_platform/${1}.py ${@:2}"
+eval "./env/bin/python3 -u ${1} ${@:2}"
