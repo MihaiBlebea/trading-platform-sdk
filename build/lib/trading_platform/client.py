@@ -4,6 +4,7 @@ from enum import Enum
 from pprint import pprint
 from typing import List
 
+from trading_platform.income_statement import IncomeStatement
 from trading_platform.order import Order
 from trading_platform.account import Account
 from trading_platform.position import Position
@@ -177,3 +178,39 @@ class Client:
 			quote["volume"],
 			quote["timestamp"],
 		) for quote in quotes ]
+
+	def get_income_statement_history_quarterly(self, symbol: str)-> List[IncomeStatement]:
+
+		res = requests.get(
+			f"{self.base_url}/api/{self.api_version}/fundamental/{symbol}/income-statement-history-quarterly",
+		)
+
+		body = self.__validate_response(res)
+
+		data = body["data"]
+
+		return [ IncomeStatement(
+			d["endDate"],
+			d["totalRevenue"],
+			d["costOfRevenue"],
+			d["grossProfit"],
+			d["researchDevelopment"],
+			d["sellingGeneralAdministrative"],
+			d["nonRecurring"],
+			d["otherOperatingExpenses"],
+			d["totalOperatingExpenses"],
+			d["operatingIncome"],
+			d["totalOtherIncomeExpenseNet"],
+			d["ebit"],
+			d["interestExpense"],
+			d["incomeBeforeTax"],
+			d["incomeTaxExpense"],
+			d["minorityInterest"],
+			d["netIncomeFromContinuingOps"],
+			d["discontinuedOperations"],
+			d["extraordinaryItems"],
+			d["effectOfAccountingCharges"],
+			d["otherItems"],
+			d["netIncome"],
+			d["netIncomeApplicableToCommonShares"]
+		) for d in data ]

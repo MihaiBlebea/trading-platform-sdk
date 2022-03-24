@@ -131,6 +131,36 @@ if __name__ == "__main__":
 	main()
 ```
 
+
+### 5. Get fundamental data
+
+If you are planning to value trade, you need to analyse the balance sheet of the company and calculate the real company price.
+
+To help with that, use this method to get all the fundamental data from the yahoo finance API.
+
+Available data as of now:
+
+- income statement history quarterly
+
+- more to come soon...
+
+
+**Example:**
+
+```python
+from pprint import pprint
+from trading_platform.client import Client
+
+def main():
+	client = Client("http://127.0.0.1:8080")
+	statements = client.get_income_statement_history_quarterly("aapl")
+	pprint(statements)
+
+if __name__ == "__main__":
+	main()
+```
+
+
 ### Enjoy the library and let us know if you would like to see any extra features
 
 *Email: mihaiserban.blebea@gmail.com*

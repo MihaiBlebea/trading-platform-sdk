@@ -8,7 +8,7 @@ README = (HERE / "README.md").read_text()
 setup(
 	name="trading_platform",
 	packages=find_packages(include=["trading_platform"], exclude=("tests",)),
-	version="0.1.2",
+	version="0.1.4",
 	description="Trading platform SDK library for Python",
 	long_description=README,
 	long_description_content_type="text/markdown",

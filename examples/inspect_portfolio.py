@@ -4,7 +4,7 @@ from time import sleep
 
 
 def main():
-	client = Client("http://127.0.0.1:8080", "")
+	client = Client("http://127.0.0.1:8080")
 	client.open_account()
 
 	order = client.place_order("AAPL", "buy", 0, 1000)
